@@ -5,6 +5,7 @@
 <title>{$title|default="标题"}</title>
 <meta name="keywords" content="{$keywords|default='关键字'}">
 <meta name="description" content="{$desc|default='描述'}">
+
 {/block}
 
 
@@ -96,12 +97,7 @@
 				</table>
 			</div>
 			<!--显示分页按钮,事先要将bootstrap导入css和js-->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4"></div>
-					<div class="col-md-4">{$page}</div></div>
-					<div class="col-md-4"></div>
-				</div>
+			<div id="demo0" style="text-align: center;">{$page}</div>
 
 		</article>
 	</div>
