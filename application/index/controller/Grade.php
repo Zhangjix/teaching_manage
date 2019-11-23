@@ -34,8 +34,8 @@ class Grade extends Base
         // foreach ($gradeList as $value) {
         //     isset($value->teacher->name) ?  $value->teacher->name :  '<span style="color:red;">未分配</span>';
            
-        //     // var_dump($sql);
-        //     // exit;
+            // var_dump($sql);
+            // exit;
         // // } 
         
        
@@ -60,22 +60,22 @@ class Grade extends Base
 
     //编辑班级渲染
     public function grade_edit(Request $request)
-    {
+    {   
+
         $this->view->assign('title','编辑班级');
         $this->view->assign('keywords','php.cn');
         $this->view->assign('desc','PHP开发实战课程');
 
         $id = $request -> param('id');
-
+       
         $result = GradeModel::get($id);
-
-        
+        // print_r($result); exit;
         $grade_id = $result['teacher_id'];
         // var_dump($grade_id);
         // exit;
 
         //关联查询,获取与当前班级对应的教师姓名
-        // $result -> teacher = $result -> teacher->name;  //(没启动报非对象模型，找不到数据)
+        $result -> teacher = $result -> teacher->name;  //(没启动报非对象模型，找不到数据)
 
         $this -> assign('teacher',\app\index\model\Teacher::get($grade_id));
 
